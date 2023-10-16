@@ -152,7 +152,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/digitalservice/xml-parser")
+            url = uri("https://maven.pkg.github.com/digitalservicebund/xml-parser")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
