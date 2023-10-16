@@ -1,4 +1,4 @@
-package com.hmones.xml.parser
+package de.bund.digitalservice.xml.parser
 
 import org.apache.commons.text.StringEscapeUtils
 import org.w3c.dom.Document

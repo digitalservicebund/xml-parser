@@ -9,7 +9,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.haythammones"
+group = "de.bund.digitalservice"
 version = "0.1"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
@@ -112,8 +112,8 @@ tasks {
         // NOTE: sonarqube picks up combined coverage correctly without further configuration from:
         // build/reports/jacoco/test/jacocoTestReport.xml
         properties {
-            property("sonar.projectKey", "hmones_xml-parser")
-            property("sonar.organization", "hmones")
+            property("sonar.projectKey", "digitalservice_xml-parser")
+            property("sonar.organization", "digitalservice")
             property("sonar.host.url", "https://sonarcloud.io")
         }
     }
@@ -152,7 +152,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/hmones/xml-parser")
+            url = uri("https://maven.pkg.github.com/digitalservice/xml-parser")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")

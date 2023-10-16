@@ -1,6 +1,6 @@
-package unit.com.hmones.xml.parser
+package unit.de.digitalservice.xml.parser
 
-import com.hmones.xml.parser.XmlDocument
+import de.bund.digitalservice.xml.parser.XmlDocument
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
