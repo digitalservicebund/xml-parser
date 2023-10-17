@@ -2,9 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.9.0"
-    id("com.diffplug.spotless") version "6.22.0"
     id("jacoco")
-    id("org.sonarqube") version "4.4.1.3373"
     id("com.adarshr.test-logger") version "4.0.0"
     id("maven-publish")
 }
@@ -110,42 +108,6 @@ tasks {
         }
 
         dependsOn(getByName("integrationTest")) // All tests are required to run before generating a report..
-    }
-
-    sonarqube {
-        // NOTE: sonarqube picks up combined coverage correctly without further configuration from:
-        // build/reports/jacoco/test/jacocoTestReport.xml
-        properties {
-            property("sonar.projectKey", "digitalservice_xml-parser")
-            property("sonar.organization", "digitalservice")
-            property("sonar.host.url", "https://sonarcloud.io")
-        }
-    }
-}
-
-spotless {
-    kotlin {
-        ktlint()
-    }
-    kotlinGradle {
-        ktlint()
-    }
-    format("misc") {
-        target(
-            "**/*.js",
-            "**/*.json",
-            "**/*.md",
-            "**/*.properties",
-            "**/*.sh",
-            "**/*.yml",
-        )
-        prettier(
-            mapOf(
-                "prettier" to "2.6.1",
-                "prettier-plugin-sh" to "0.7.1",
-                "prettier-plugin-properties" to "0.1.0",
-            ),
-        ).config(mapOf("keySeparator" to "="))
     }
 }
 
