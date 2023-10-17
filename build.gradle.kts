@@ -11,7 +11,11 @@ plugins {
 
 group = "de.bund.digitalservice"
 version = "0.1"
-java.sourceCompatibility = JavaVersion.VERSION_17
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
@@ -116,9 +120,6 @@ tasks {
             property("sonar.organization", "digitalservice")
             property("sonar.host.url", "https://sonarcloud.io")
         }
-    }
-    getByName("sonarqube") {
-        dependsOn(jacocoTestReport)
     }
 }
 
