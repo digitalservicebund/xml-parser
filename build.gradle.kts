@@ -160,6 +160,11 @@ publishing {
         }
     }
     publications {
-        create<MavenPublication>("maven") { from(components["java"]) }
+        create<MavenPublication>("maven") {
+            from(components["java"])
+            groupId = "de.bund.digitalservice"
+            artifactId = "xml-parser"
+            version = "0.1"
+        }
     }
 }
