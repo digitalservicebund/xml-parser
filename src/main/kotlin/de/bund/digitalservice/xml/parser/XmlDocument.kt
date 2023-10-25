@@ -7,6 +7,7 @@ import org.w3c.dom.NodeList
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.StringWriter
+import javax.xml.XMLConstants
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.transform.OutputKeys
 import javax.xml.transform.Transformer
@@ -22,8 +23,9 @@ class XmlDocument(content: ByteArray) {
     private val xpathInstance: XPath = XPathFactory.newInstance().newXPath()
 
     init {
-        val builder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-        document = builder.parse(ByteArrayInputStream(content))
+        val factory = DocumentBuilderFactory.newInstance();
+        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        document = factory.newDocumentBuilder().parse(ByteArrayInputStream(content))
     }
 
     fun getSimpleElementByXpath(xpath: String): String? {

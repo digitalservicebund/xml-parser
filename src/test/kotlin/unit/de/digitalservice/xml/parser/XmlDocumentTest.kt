@@ -2,7 +2,9 @@ package unit.de.digitalservice.xml.parser
 
 import de.bund.digitalservice.xml.parser.XmlDocument
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
+import org.xml.sax.SAXParseException
 
 class XmlDocumentTest {
     val document =
@@ -53,5 +55,16 @@ class XmlDocumentTest {
     fun `it can extracts an array of elements with html if multiple are found`() {
         val xml = XmlDocument(document.toByteArray())
         assertThat(xml.getArrayElementsHtmlByXpath("catalog/book/title")).isEqualTo(listOf("XML Developer's <br> Guide", "Midnight Rain"))
+    }
+
+    @Test
+    fun `it fails to parse input with some injections to be security`() {
+        val content =
+            """
+            <?xml version="1.0"?><!DOCTYPE foo [ <!ENTITY passwords SYSTEM "file:///etc/passwd"> ]>
+            <catalog>&passwords;</catalog>
+            """.trimIndent()
+
+        assertThatThrownBy { XmlDocument(content.toByteArray()) }.isInstanceOf(SAXParseException::class.java)
     }
 }
