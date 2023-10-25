@@ -127,7 +127,7 @@ publishing {
             from(components["java"])
             groupId = "de.bund.digitalservice"
             artifactId = "xml-parser"
-            version = "0.1"
+            version = "0.2"
         }
     }
 }
