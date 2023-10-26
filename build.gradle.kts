@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "de.bund.digitalservice"
-version = "0.1"
+version = "0.3"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -127,7 +127,7 @@ publishing {
             from(components["java"])
             groupId = "de.bund.digitalservice"
             artifactId = "xml-parser"
-            version = "0.2"
+            version = "0.3"
         }
     }
 }
