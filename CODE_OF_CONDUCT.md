@@ -62,7 +62,7 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
 [github-community@digitalservice.bund.de](mailto:github-community@digitalservice.bund.de). Reports related
 to the community leaders can be sent together with information about the involved
-community leaders to [github-community@digitalservice.bund.de](mailto:github-community@digitalservice.bund.de).
+community leaders to [hallo@digitalservice.bund.de](mailto:hallo@digitalservice.bund.de).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the

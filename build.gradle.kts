@@ -20,7 +20,7 @@ repositories {
 }
 
 jacoco {
-    toolVersion = "0.8.8"
+    toolVersion = "0.8.11"
 }
 
 testlogger { theme = com.adarshr.gradle.testlogger.theme.ThemeType.MOCHA }
@@ -57,57 +57,15 @@ tasks {
     }
 
     withType<Test> {
-        useJUnitPlatform {
-            excludeTags("integration")
-        }
-    }
-
-    register<Test>("integrationTest") {
-        description = "Runs the integration tests."
-        group = "verification"
-        useJUnitPlatform {
-            includeTags("integration")
-        }
-
-        // So that running integration test require running unit tests first,
-        // and we won"t even attempt running integration tests when there are
-        // failing unit tests.
-        dependsOn(test)
+        useJUnitPlatform()
         finalizedBy(jacocoTestReport)
-    }
-    check {
-        dependsOn(getByName("integrationTest"))
     }
 
     jacocoTestReport {
-        // Jacoco hooks into all tasks of type: Test automatically, but results for each of these
-        // tasks are kept separately and are not combined out of the box... we want to gather
-        // coverage of our unit and integration tests as a single report!
-        executionData.setFrom(
-            files(
-                fileTree(project.buildDir.absolutePath) {
-                    include("jacoco/*.exec")
-                },
-            ),
-        )
-
-        // Prevent Spring Boot + Kotlin compilation artifact skewing coverage!
-        classDirectories.setFrom(
-            files(
-                classDirectories.files.map {
-                    fileTree(it) {
-                        exclude("**/constants/**")
-                    }
-                },
-            ),
-        )
-
         reports {
             xml.required.set(true)
             html.required.set(true)
         }
-
-        dependsOn(getByName("integrationTest")) // All tests are required to run before generating a report..
     }
 }
 

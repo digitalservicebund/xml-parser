@@ -67,7 +67,7 @@ Fälle von missbräuchlichem, belästigendem oder anderweitig inakzeptablem Verh
 können unter [github-community@digitalservice.bund.de](mailto:github-community@digitalservice.bund.de)
 der für die Durchsetzung zuständigen Gemeinschaftsleitung gemeldet werden. Fälle
 im Zusammenhang mit Mitgliedern der Gemeinschaftsleitung können zusammen mit einem
-Hinweis auf die beteiligten Mitglieder an [github-community@digitalservice.bund.de](mailto:github-community@digitalservice.bund.de)
+Hinweis auf die beteiligten Mitglieder an [hallo@digitalservice.bund.de](mailto:hallo@digitalservice.bund.de)
 gesendet werden und werden dann separat bearbeitet. Alle Beschwerden werden
 zeitnah und fair geprüft und ermittelt.
 
