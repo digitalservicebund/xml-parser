@@ -27,7 +27,7 @@ testlogger { theme = com.adarshr.gradle.testlogger.theme.ThemeType.MOCHA }
 
 dependencies {
     val junitVersion = "5.10.0"
-    val commonsTextVersion = "1.10.0"
+    val commonsTextVersion = "1.11.0"
     val assertJVersion = "3.24.2"
     val jacksonVersion = "2.15.2"
 
