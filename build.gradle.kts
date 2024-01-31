@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "de.bund.digitalservice"
-version = "0.6"
+version = "0.8"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
