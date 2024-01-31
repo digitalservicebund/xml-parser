@@ -98,12 +98,6 @@ class XmlDocument(content: ByteArray) {
         return StringEscapeUtils.unescapeHtml4(writer.toString())
     }
 
-    fun getSimpleDateByXpath(xpath: String): String? {
-        val result = getSimpleElementByXpath(xpath)
-
-        return if (listOf("9999-99-99", "0000-00-00", "8888-88-88").contains(result)) null else result
-    }
-
     companion object {
         fun fromDocument(document: Document): XmlDocument = XmlDocument(documentToByteArray(document))
 
