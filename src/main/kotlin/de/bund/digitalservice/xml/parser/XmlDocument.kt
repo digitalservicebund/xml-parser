@@ -23,8 +23,8 @@ class XmlDocument(content: ByteArray) {
     private val xpathInstance: XPath = XPathFactory.newInstance().newXPath()
 
     init {
-        val factory = DocumentBuilderFactory.newInstance();
-        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        val factory = DocumentBuilderFactory.newInstance()
+        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)
         document = factory.newDocumentBuilder().parse(ByteArrayInputStream(content))
     }
 

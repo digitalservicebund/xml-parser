@@ -5,6 +5,7 @@ plugins {
     id("jacoco")
     id("com.adarshr.test-logger") version "4.0.0"
     id("maven-publish")
+    id("com.diffplug.spotless") version "6.25.0"
 }
 
 group = "de.bund.digitalservice"
@@ -76,5 +77,31 @@ publishing {
             groupId = "de.bund.digitalservice"
             artifactId = "xml-parser"
         }
+    }
+}
+
+spotless {
+    kotlin {
+        ktlint()
+    }
+    kotlinGradle {
+        ktlint()
+    }
+    format("misc") {
+        target(
+            "**/*.js",
+            "**/*.json",
+            "**/*.md",
+            "**/*.properties",
+            "**/*.sh",
+            "**/*.yml",
+        )
+        prettier(
+            mapOf(
+                "prettier" to "2.6.1",
+                "prettier-plugin-sh" to "0.7.1",
+                "prettier-plugin-properties" to "0.1.0",
+            ),
+        ).config(mapOf("keySeparator" to "="))
     }
 }
