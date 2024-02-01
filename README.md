@@ -43,3 +43,33 @@ lizenzieren. Durch das Einreichen des Patches erklärst du dich damit einverstan
 MIT-Lizenz lizenziert sind.
 
 Bitte stelle sicher, dass deine Änderungen getestet wurden, bevor du einen Pull-Request sendest.
+
+## Releasing Versions
+
+### Creating Tags for Releases
+
+When preparing a release, ensure the creation of an appropriate tag in accordance with the existing schema, which is
+`vMAJOR.MINOR` (e.g., `v1.2`). The version number should match the one defined in our [build.gradle.kts file](./build.gradle.kts).
+
+#### Example:
+
+```bash
+git tag -a v1.2 -m "Release version 1.2"
+git push origin v1.2
+```
+
+### Publishing Releases
+
+After creating the tag, proceed to create a release version from this tag. 
+This version will automatically be published by [jitpack.io](https://www.jitpack.io/#digitalservicebund/xml-parser/).
+
+Make sure that the release notes and any additional information are appropriately documented to keep users informed 
+about the changes in this version.
+
+### JitPack Integration
+
+Our releases are hosted and automatically published by [jitpack.io](https://www.jitpack.io/#digitalservicebund/xml-parser/).
+Users can easily include the latest version of our library in their projects by referring to the jitpack.io repository
+as mentioned in the beginning of this README.
+
+**Note**: In addition to releases, each tag is also available as a verion in JitPack.
